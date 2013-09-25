@@ -1,7 +1,8 @@
 // PRUSA iteration3
 // NEMA 17 extruder body
 // GNU GPL v3
-// Josef Průša <iam@josefprusa.cz>, Kliment Yanev and contributors
+// Modified by Sam Sheffield <hello@samsheffield.com>
+// Original by Josef Průša <iam@josefprusa.cz>, Kliment Yanev and contributors
 // http://www.reprap.org/wiki/Prusa_Mendel
 // http://prusamendel.org
 
@@ -15,6 +16,10 @@ translate([0,-25,0]) rotate([0,90,0]) cylinder(r=2, h=70);
 translate([10-5,-25,0]) rotate([0,90,0]) rotate([0,0,30])cylinder(r=3.3, h=70,$fn=6);
 }
 
+module fanmount(){
+	translate([0,15,0]) rotate([0,90,0]) cylinder(r=2, h=70);
+	translate([10-5,15,0]) rotate([0,90,0]) rotate([0,0,30]) cylinder(r=3.3, h=70,$fn=6);
+}
 
 difference(){
 union(){
@@ -26,7 +31,8 @@ translate([-1,30,0]) cube([6, 7, 52]);
 
 
 translate([-1,15,51]) cube([6, 20, 1]);
-translate([-1,15,22]) cube([6, 20, 2]);
+
+translate([-1,15,0]) cube([6, 20, 24]);
 
 }
 
@@ -37,6 +43,7 @@ translate([-11,-91,-1])rotate([0,0,45])cube([40,40,60]);
 translate([46,12,-1])rotate([0,0,45])cube([40,40,60]);
 translate([-32,12,-1])rotate([0,0,45])cube([40,40,60]);
 translate([6,31,-1])rotate([0,0,45])cube([40,40,60]);
+translate([-11,-72,14])rotate([0,0,45])cube([40,40,60]);
 
 // motor circle cut
 translate([0,-1,0.5]){
@@ -53,10 +60,7 @@ translate([21-15.5,-21-15.5,-1]) cylinder(r=2, h=5);
 
 
 // idler bearing cutout
-
 translate([21,24,33]) cylinder(r=12, h=17.5, $fn=90);
-
-
 
 translate([21,8.1,7.5]) cylinder(r=6, h=43, $fn=50);
 
@@ -89,7 +93,7 @@ translate([0,0-24,30])rotate([0,0,0])cylinder(r=3.3/2, h=70, $fn=15);
 translate([0,0,-2]){
 translate([-10,2+8+4,52-12]) nozzlemount();
 //translate([-10,2+8+4,52-12-25]) nozzlemount();
-
+translate([-10,2+8+4,52-12-25]) fanmount();
 translate([32.5,7,52-12-7-3]) cube([15,3,6]);
 
 translate([32.5,7,52-12-7-3+14]) cube([15,3,6]);
@@ -107,11 +111,11 @@ translate([5+31,-1,52-12-7]) rotate([0,90,90]) rotate([0,0,30]) cylinder(r=2, h=
 
 
 // pretty cutout
-translate([-10,27,0]) rotate([-23,0,0]) cube([20,12,50]);
-translate([0,27,6]) rotate([0,23,0]) cube([20,12,50]);
+//translate([-10,27,0]) rotate([-23,0,0]) cube([20,12,50]);
+//translate([0,27,6]) rotate([0,23,0]) cube([20,12,50]);
 
 // pretty cutout
 translate([-10,-66,0]) rotate([-23,0,0]) cube([12,20,90]);
-
+translate([-10,-41,16]) cube([12,20,90]);
 }
 }
