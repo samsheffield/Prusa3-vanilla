@@ -1,7 +1,8 @@
 // PRUSA iteration3
 // NEMA 17 extruder small gear
 // GNU GPL v3
-// Josef Průša <iam@josefprusa.cz> and contributors
+// Modified by Sam Sheffield <hello@samsheffield.com>
+// Original by Josef Průša <iam@josefprusa.cz> and contributors
 // http://www.reprap.org/wiki/Prusa_Mendel
 // http://prusamendel.org
 
@@ -20,11 +21,14 @@ module small_gear()
 
 
 			difference(){ 
-				translate ([0,0,-1]) cylinder(r=5/2, h=25, $fn=30);
-				translate ([-5,1.5,0])cube([10,10,30]);
+				translate ([0,0,-1]) cylinder(r=5.5/2, h=25, $fn=30);
+				translate ([-5,1.75,0])cube([10,10,30]);
 			}
 		}
 	}
 }
 
+difference(){
 small_gear();
+translate ([20,-10,10]) cube(20);
+}
