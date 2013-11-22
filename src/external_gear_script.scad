@@ -378,7 +378,7 @@ module gear (
 				linear_exturde_flat_option(flat=flat, height=gear_thickness)
 				circle (r=rim_radius);
 			if (flat == false && hub_thickness > gear_thickness)
-				translate ([0,0,gear_thickness])
+				translate ([0,0,0])
 				linear_exturde_flat_option(flat=flat, height=hub_thickness-gear_thickness)
 				circle (r=hub_diameter/2);
 		}
